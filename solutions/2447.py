@@ -14,7 +14,6 @@ def star(n):
                     for k in range(a):
                         s[i*a+k][j*a:j*a+a] = s[k][:a]
 
-
 N = int(input())
 s = [[0]*N for i in range(N)]
 star(N)
