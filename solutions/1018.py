@@ -11,19 +11,19 @@ for i in range(N):
 min_num = N*M
 for i in range(N-7):
     for j in range(M-7):
-        change = 0
-        change2 = 0
+        diff1 = 0
+        diff2 = 0
         print("[",i, j,"]")
-        for k in range(8):
+        for a in range(i, i+8):
             loc = (loc+1)%2
-            print(state[i+k][j:j+8], target[loc], target2[loc])
-            for l in range(8):
-                if state[i+k][j+l] != target[loc]:
-                    change += 1
-                if state[i+k][j+l] != target2[loc]:
-                    change2 += 1
+            print(state[a][j:j+8], target[loc], target2[loc])
+            for b in range(j, j+8):
+                if state[a][b] != target[loc]:
+                    diff1 += 1
+                if state[a][b] != target2[loc]:
+                    diff2 += 1
                 loc = (loc+1)%2
-        if min(change, change2) < min_num:
-            min_num = min(change, change2)
+        if min(diff1, diff2) < min_num:
+            min_num = min(diff1, diff2)
 
 print(min_num)
